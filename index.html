@@ -10,25 +10,196 @@
     />
     <link href="styles/styles.css" rel="stylesheet" />
     <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/simple-icons-font@13/font/simple-icons.min.css"
+    />
   </head>
+
   <body>
     <nav class="navbar">
       <div class="nav-brand">Carlos Montgomery</div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#contact">Contact</a></li>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link-item">Home</a></li>
+        <li><a href="#about" class="nav-link-item">About</a></li>
+        <li><a href="#resume" class="nav-link-item">Resume</a></li>
+        <li><a href="#contact" class="nav-link-item">Contact</a></li>
       </ul>
     </nav>
-    <div class="container_clouds">
-      <div class="clouds1"></div>
-      <div class="clouds2"></div>
-      <div class="clouds3"></div>
-    </div>
+
     <div class="bg"></div>
+
     <div class="overlay"></div>
-    <div class="content"></div>
+    <div class="content">
+      <section id="home" class="hero">
+        <div class="hero-content">
+          <p class="hero-label">Software Engineer</p>
+          <h1 class="hero-name">Carlos<br />Montgomery</h1>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="about-inner">
+          <h3 class="section-header">About Me</h3>
+          <p>
+            I'm a full-stack software engineer based in El Paso, TX, with four
+            years of experience building internal tools and web applications
+            that simplify people's lives.
+          </p>
+          <p>
+            I work as a Software Engineer at Socorro Independent School
+            District, using Angular on the frontend, PHP on the backend, and
+            MySQL and MSSQL for database management. The team is small, so I
+            wear many hats, from writing requirements with stakeholders to
+            shipping and maintaining production applications.
+          </p>
+          <p>
+            On the academic side, I studied at the University of Texas at El
+            Paso in Fall 2025 and was working toward a Master's in Software
+            Engineering. I'm planning to pick back up this summer semester,
+            still weighing options in Software Engineering, Systems Engineering,
+            and Computer Engineering, and plan to decide in the next few months.
+          </p>
+        </div>
+      </section>
+
+      <!-- <section id="projects">Projects section goes here</section> -->
+
+      <section id="resume">
+        <div class="resume-inner">
+          <div class="resume-header">
+            <h3 class="section-header">Resume</h3>
+            <a
+              href="assets/resume/Carlos_Montgomery_Resume.pdf"
+              download
+              class="resume-download"
+              >Download PDF</a
+            >
+          </div>
+
+          <div class="resume-block">
+            <h4 class="resume-block-title">Experience</h4>
+
+            <div class="resume-entry">
+              <div class="resume-entry-header">
+                <div>
+                  <p class="resume-entry-role">Software Engineer</p>
+                  <p class="resume-entry-org">
+                    Socorro Independent School District — El Paso, TX
+                  </p>
+                </div>
+                <span class="resume-entry-date">Mar 2022 – Present</span>
+              </div>
+              <ul class="resume-entry-list">
+                <li>
+                  Design, develop, and maintain custom web applications
+                  supporting district-wide operations and data analysis.
+                </li>
+                <li>
+                  Built an internal payroll tool integrating the district's
+                  absence management and ERP systems, reducing a week-long
+                  manual process to a few minutes.
+                </li>
+                <li>
+                  Developed a district-wide online store serving 51 schools,
+                  averaging $500,000 in monthly transactions.
+                </li>
+                <li>
+                  Collaborate with stakeholders across departments to gather
+                  requirements and deliver reliable software.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="resume-block">
+            <h4 class="resume-block-title">Education</h4>
+
+            <div class="resume-entry">
+              <div class="resume-entry-header">
+                <div>
+                  <p class="resume-entry-role">M.S. Software Engineering</p>
+                  <p class="resume-entry-org">University of Texas at El Paso</p>
+                </div>
+                <span class="resume-entry-date">Aug 2025 – Dec 2027</span>
+              </div>
+            </div>
+
+            <div class="resume-entry">
+              <div class="resume-entry-header">
+                <div>
+                  <p class="resume-entry-role">B.S. Computer Science</p>
+                  <p class="resume-entry-org">University of Texas at El Paso</p>
+                </div>
+                <span class="resume-entry-date">Aug 2016 – Aug 2021</span>
+              </div>
+              <p class="resume-entry-note">Minor: Mathematics</p>
+            </div>
+          </div>
+
+          <div class="resume-block">
+            <h4 class="resume-block-title">Skills</h4>
+            <div class="resume-skills">
+              <span class="resume-skill">Angular</span>
+              <span class="resume-skill">PHP</span>
+              <span class="resume-skill">JavaScript</span>
+              <span class="resume-skill">TypeScript</span>
+              <span class="resume-skill">MySQL</span>
+              <span class="resume-skill">MSSQL</span>
+              <span class="resume-skill">Linux</span>
+              <span class="resume-skill">Git</span>
+              <span class="resume-skill">Pentaho</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="contact">
+        <div class="contact-inner">
+          <h3 class="section-header">Contact</h3>
+          <p class="contact-intro">
+            I'm always open to new opportunities and conversations. Feel free to
+            reach out.
+          </p>
+          <div class="contact-links">
+            <a href="mailto:camontgomery98@gmail.com" class="contact-link">
+              <div class="contact-link-left">
+                <i class="si si-gmail contact-icon"></i>
+                <span class="contact-link-label">Email</span>
+              </div>
+              <span class="contact-link-value">camontgomery98@gmail.com</span>
+            </a>
+            <a
+              href="https://linkedin.com/in/carlosmontgomery0508"
+              target="_blank"
+              class="contact-link"
+            >
+              <div class="contact-link-left">
+                <i class="si si-linkedin contact-icon"></i>
+                <span class="contact-link-label">LinkedIn</span>
+              </div>
+              <span class="contact-link-value">carlosmontgomery0508</span>
+            </a>
+            <a
+              href="https://github.com/carlosmonty"
+              target="_blank"
+              class="contact-link"
+            >
+              <div class="contact-link-left">
+                <i class="si si-github contact-icon"></i>
+                <span class="contact-link-label">GitHub</span>
+              </div>
+              <span class="contact-link-value">carlosmonty</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+
     <script>
       function parseTimeToDate(timeStr) {
         const [time, modifier] = timeStr.split(" ");
@@ -65,23 +236,16 @@
 
                   sunrise = data.results.sunrise;
                   sunset = data.results.sunset;
-                  midnight = data.results.nautical_twilight_end;
-                  console.log(
-                    `Sunrise: ${sunrise}, Sunset: ${sunset}, Midnight: ${midnight}`,
-                  );
+                  midnight = data.results.civil_twilight_end;
+
                   const sunriseDate = parseTimeToDate(sunrise);
                   const sunsetDate = parseTimeToDate(sunset);
                   const midnightDate = parseTimeToDate(midnight);
 
                   const bgElement = document.querySelector(".bg");
-
-                  if (now > sunriseDate && now < sunsetDate) {
-                    console.log("It's daytime");
-                  } else if (now >= sunsetDate && now < midnightDate) {
-                    console.log("It's nighttime");
-                  } else {
-                    console.log("It's midnight");
-                  }
+                  const navElement = document.querySelectorAll(".nav-links a");
+                  const navBrandElement =
+                    document.querySelectorAll(".nav-brand");
 
                   if (now >= sunriseDate && now < sunsetDate) {
                     bgElement.style.backgroundImage =
@@ -92,6 +256,10 @@
                   } else {
                     bgElement.style.backgroundImage =
                       'url("assets/images/website-bg-midnight.png")';
+                    navElement.forEach((link) => (link.style.color = "#fff"));
+                    navBrandElement.forEach(
+                      (link) => (link.style.color = "#fff"),
+                    );
                   }
                 })
                 .catch((error) => {
@@ -111,39 +279,49 @@
       }
 
       function updateBackgroundImage() {
+        // Time variables for determining which background to show
         const now = new Date();
         const hour = now.getHours();
-        const bgElement = document.querySelector(".bg");
         const sunriseHour = 6; // 6 AM
         const sunsetHour = 18; // 6 PM
         const midnightHour = 20; // 8 PM
-        console.log(`Current hour: ${hour}`);
-        if (hour > sunriseHour && hour < sunsetHour) {
-          console.log("It's daytime");
-        } else if (hour >= sunsetHour && hour < midnightHour) {
-          console.log("It's nighttime");
-        } else {
-          console.log("It's midnight");
-        }
+
+        //Get html element to update background image, text color, and nav link color
+        const bgElement = document.querySelector(".bg");
+        const navElement = document.querySelectorAll(".nav-links a");
+        const navBrandElement = document.querySelectorAll(".nav-brand");
 
         if (hour >= sunriseHour && hour < sunsetHour) {
           bgElement.style.backgroundImage =
-            'url("assets/images/website-bg.png")';
+            'url("assets/images/website-bg-midnight.png")';
         } else if (hour >= sunsetHour && hour < midnightHour) {
           bgElement.style.backgroundImage =
             'url("assets/images/website-bg-night.png")';
         } else {
           bgElement.style.backgroundImage =
             'url("assets/images/website-bg-midnight.png")';
+          navElement.forEach((link) => (link.style.color = "#fdf6ec"));
+          navBrandElement.forEach((link) => (link.style.color = "#fdf6ec"));
         }
       }
+      const navToggle = document.getElementById("navToggle");
+      const navLinks = document.getElementById("navLinks");
 
-      // Update on page load
-      // getUserLocation();
+      navToggle.addEventListener("click", () => {
+        navToggle.classList.toggle("open");
+        navLinks.classList.toggle("open");
+      });
+
+      // close menu when a link is clicked
+      document.querySelectorAll(".nav-link-item").forEach((link) => {
+        link.addEventListener("click", () => {
+          navToggle.classList.remove("open");
+          navLinks.classList.remove("open");
+        });
+      });
+
       updateBackgroundImage();
-
-      // Update every minute to catch the transition
-      // setInterval(updateBackgroundImage, 60000);
+      getUserLocation();
     </script>
   </body>
 </html>
