@@ -28,12 +28,13 @@ body {
 .bg {
   position: fixed;
   inset: 0;
-  background-image: url("../assets/images/website-bg.png");
+  background-image: url("../assets/images/website-bg-night.png");
   background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
   z-index: 0;
 }
+
 
 .overlay {
   position: fixed;
@@ -271,11 +272,11 @@ body {
   justify-content: space-between;
   align-items: center;
   z-index: 10;
-  background: linear-gradient(
+  /* background: linear-gradient(
     to bottom,
     rgba(184, 201, 194, 0.95) 0%,
     rgba(184, 201, 194, 0.7) 100%
-  );
+  ); */
   backdrop-filter: blur(10px);
 }
 

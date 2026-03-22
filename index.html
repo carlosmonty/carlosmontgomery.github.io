@@ -28,8 +28,107 @@
     </div>
     <div class="bg"></div>
     <div class="overlay"></div>
-    <div class="content">
+    <div class="content"></div>
+    <script>
+      function parseTimeToDate(timeStr) {
+        const [time, modifier] = timeStr.split(" ");
+        let [hours, minutes, seconds] = time.split(":").map(Number);
+        if (modifier === "PM" && hours !== 12) hours += 12;
+        if (modifier === "AM" && hours === 12) hours = 0;
+        const d = new Date();
+        d.setHours(hours, minutes, seconds, 0);
+        return d;
+      }
 
-    </div>
+      //TODO: Ask user for location and time zone to determine sunrise/sunset times and adjust background accordingly if not then default to time-based background (sunrise at 6 AM, sunset at 6 PM)
+      function getUserLocation() {
+        //get user location and time zone to determine sunrise/sunset times
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            (position) => {
+              let sunrise;
+              let sunset;
+              let midnight;
+
+              const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+           
+              const latitude = position.coords.latitude;
+              const longitude = position.coords.longitude;
+
+              fetch(
+                `https://api.sunrise-sunset.org/json?lat=${latitude}&lng=${longitude}&date=today&tzid=${userTimeZone}`,
+              )
+                .then((response) => response.json())
+                .then((data) => {
+                  let now = new Date();
+
+                  sunrise = data.results.sunrise;
+                  sunset = data.results.sunset;
+                  midnight = data.results.nautical_twilight_end;
+                  console.log(`Sunrise: ${sunrise}, Sunset: ${sunset}, Midnight: ${midnight}`);
+                  const sunriseDate = parseTimeToDate(sunrise);
+                  const sunsetDate = parseTimeToDate(sunset);
+                  const midnightDate = parseTimeToDate(midnight);
+
+                  const bgElement = document.querySelector(".bg");
+
+                  if(now>sunriseDate && now<sunsetDate){
+                    console.log("It's daytime");
+                  } else if (now >= sunsetDate && now < midnightDate) {
+                    console.log("It's nighttime");
+                  } else {
+                    console.log("It's midnight");
+                  }
+
+                  if (now >= sunriseDate && now < sunsetDate) {
+                    bgElement.style.backgroundImage ='url("assets/images/website-bg.png")';
+                  } else if (now >= sunsetDate && now < midnightDate) {
+                    bgElement.style.backgroundImage ='url("assets/images/website-bg-night.png")';
+                  } else {
+                    bgElement.style.backgroundImage ='url("assets/images/website-bg-midnight.png")';
+                  }
+                })
+                .catch((error) => {
+                  console.error("Error fetching sunrise/sunset data:", error);
+                  updateBackgroundImage();
+                });
+            },
+            (error) => {
+              console.error("Error getting user location:", error);
+              updateBackgroundImage();
+            },
+          );
+        } else {
+          console.error("Geolocation is not supported by this browser.");
+          updateBackgroundImage();
+        }
+      }
+
+      function updateBackgroundImage() {
+        const now = new Date();
+        const hour = now.getHours();
+        const bgElement = document.querySelector(".bg");
+        const sunriseHour = 6; // 6 AM
+        const sunsetHour = 18; // 6 PM
+        const midnightHour = 20; // 8 PM
+        // Sunset is roughly 6 PM (18:00), sunrise is 6 AM (6:00)
+        const isNight = hour >= 18 || hour < 6;
+        console.log(`Current hour: ${hour}, isNight: ${isNight}`);
+        if (isNight) {
+          bgElement.style.backgroundImage =
+            'url("assets/images/website-bg-night.png")';
+        } else {
+          bgElement.style.backgroundImage =
+            'url("assets/images/website-bg.png")';
+        }
+      }
+
+      // Update on page load
+      getUserLocation();
+      // updateBackgroundImage();
+
+      // Update every minute to catch the transition
+      // setInterval(updateBackgroundImage, 60000);
+    </script>
   </body>
 </html>
