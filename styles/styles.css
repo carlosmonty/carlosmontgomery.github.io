@@ -28,12 +28,13 @@ body {
 .bg {
   position: fixed;
   inset: 0;
-  background-image: url("../assets/images/website_background.svg");
+  background-image: url("../assets/images/website-bg-night.png");
   background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
   z-index: 0;
 }
+
 
 .overlay {
   position: fixed;
@@ -202,3 +203,129 @@ body {
     margin-top: 2rem;
   }
 }
+
+/* .container_clouds {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+} */
+
+.clouds1 {
+  background-image: url("../assets/images/clouds/clouds_1.png");
+  /* animation: clouds1_loop1 20s infinite linear; */
+}
+
+.clouds2 {
+  background-image: url("../assets/images/clouds/clouds_2.png");
+  /* animation: clouds2_loop2 15s infinite linear; */
+}
+
+.clouds3 {
+  background-image: url("../assets/images/clouds/clouds_3.png");
+  /* animation: clouds3_loop3 17s infinite linear; */
+}
+
+/* .clouds1,
+.clouds2,
+.clouds3 {
+  background-repeat: repeat-x;
+  height: 500px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+.about_container {
+  padding: 50px;
+  padding-top: 300px;
+}
+
+@keyframes clouds1_loop1 {
+  to {
+    background-position: -1000px 0;
+  }
+}
+@keyframes clouds2_loop2 {
+  to {
+    background-position: -1000px 0;
+  }
+}
+@keyframes clouds3_loop3 {
+  to {
+    background-position: -1579px 0;
+  }
+} */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  /* background: linear-gradient(
+    to bottom,
+    rgba(184, 201, 194, 0.95) 0%,
+    rgba(184, 201, 194, 0.7) 100%
+  ); */
+  backdrop-filter: blur(10px);
+}
+
+.nav-brand {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--dark);
+  letter-spacing: 0.05em;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+}
+
+.nav-links a {
+  color: var(--dark);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.3s, border-bottom 0.3s;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 4px;
+}
+
+.nav-links a:hover {
+  color: var(--sand);
+  border-bottom: 1px solid var(--sand);
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .nav-links {
+    gap: 1.5rem;
+  }
+
+  .nav-links a {
+    font-size: 0.75rem;
+  }
+
+  .nav-brand {
+    font-size: 1.1rem;
+  }
+}
+
